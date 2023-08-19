@@ -1,0 +1,10 @@
+###Register user
+POST http://localhost:4700/user/register 
+Content-Type: application/json 
+
+{
+    "userName":"David Munyiri",
+    "userEmail":"davidmunyiri@gmail.com",
+    "userPhone":"0703845359",
+    "userPassword":"12345678"
+}
