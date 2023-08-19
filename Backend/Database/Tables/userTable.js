@@ -11,7 +11,7 @@ const createTableUser=async(req,res)=>{
                     userId VARCHAR(100) PRIMARY KEY,
                     userName VARCHAR(100) UNIQUE NOT NULL,
                     userEmail VARCHAR(100) UNIQUE NOT NULL,
-                    userPhone VARCHAR (15) UNIQUE NOT NULL,
+                    userPhone INT NOT NULL,
                     userPassword VARCHAR(MAX) NOT NULL,
                     profilePic VARCHAR (MAX),
                     role VARCHAR (20) DEFAULT 'user' 
