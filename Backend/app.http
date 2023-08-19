@@ -3,9 +3,9 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"Sawud",
-   "userPhone":"07546326421",
-   "userEmail":"dawud@gmail.com",
+   "userName":"David Munyiri",
+   "userPhone":"1750505060",
+   "userEmail":"munyiri@gmail.com",
    "userPassword":"12345678"
 }
 
@@ -15,6 +15,6 @@ POST http://localhost:4700/user/login
 Content-Type: application/json 
 
 {
-   "userName":"Sawud",
+   "userName":"David Munyiri",
    "userPassword":"12345678"
 }

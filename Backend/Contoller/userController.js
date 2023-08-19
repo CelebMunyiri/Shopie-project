@@ -2,6 +2,9 @@ const mssql=require('mssql')
 const {v4}=require('uuid')
 const bcrypt=require('bcrypt')
 
+const dotenv=require('dotenv')
+dotenv.config()
+
 const { sqlConfig } = require('../Config/config')
 const jwt=require('jsonwebtoken') 
 const { userUpdateValidator, loginValidator } = require('../Validators/validator')
@@ -47,11 +50,11 @@ const loginUser=async(req,res)=>{
         }
        const pool=await mssql.connect(sqlConfig)
        const user=(await pool.request().input('userName',userName).execute('userLoginProc')).recordset[0]
-       const hashedPassword=user.userPassword
+       const hashedPwd=user.userPassword
 
        
        if(user){
-        const comparePassword=await bcrypt.compare(userPassword, hashedPassword)
+        const comparePassword=await bcrypt.compare(userPassword, hashedPwd)
 
         if(comparePassword){
             const {userPassword,userId,...payload}=user 
