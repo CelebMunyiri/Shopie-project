@@ -1,0 +1,36 @@
+.nav{
+    width: 100vw;
+    height: 8vh;
+    background-color:#4bca49;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(44, 87, 48);
+}
+.menu a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: white;
+}
+.s-btn{
+    width: 20px;
+}
+.search-img{
+    width: 20px;
+}
+.side{
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 90vh;
+    background-color: #b4e4b3;
+}
+.categories{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
