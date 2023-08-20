@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { UserPageComponent } from './user-page/user-page.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { UserPageComponent } from './user-page/user-page.component';
     RegisterComponent,
     LandingPageComponent,
     AdminPageComponent,
-    UserPageComponent
+    UserPageComponent,
+    TopNavComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
