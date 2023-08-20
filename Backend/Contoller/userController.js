@@ -72,7 +72,7 @@ const loginUser=async(req,res)=>{
     }
 }
 
-//USER UPDATE DETAILS ENDPOINT
+//USER UPDATE DETAILS
 
 const updateUser=async(req,res)=>{
     try {
@@ -80,9 +80,9 @@ const updateUser=async(req,res)=>{
         const {userName,userEmail,userPhone,userPassword,profilePic}=req.body
         
          const {error}=userUpdateValidator .validate(req.body)
-         if(error){
-             return res.status(422).json(error.details[0].message)
-         }
+        //  if(error){
+        //      return res.status(422).json(error.details[0].message)
+        //  }
         
         
         const hashedPassword=await bcrypt.hash(userPassword, 10)

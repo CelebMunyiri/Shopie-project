@@ -1,0 +1,5 @@
+CREATE OR ALTER PROCEDURE viewAllProductsProc
+AS 
+BEGIN 
+SELECT * FROM productTable 
+END;
