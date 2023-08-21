@@ -67,7 +67,8 @@ const removeOneFromCart=async(req,res)=>{
         .input('productId',productId)
         .execute('removeOneFromCartProc'))
         if(removedItem){
-            return res.status(200).json({message:"Item from cart"})
+            return res.status(200).json({message:"Item Removed from cart"})
+        
         }
         else{
             return res.status(401).json({message:"Error Removing Item From the Cart"})

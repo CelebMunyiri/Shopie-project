@@ -1,13 +1,3 @@
--- CREATE OR ALTER PROCEDURE addToCartProc(
---     @productId VARCHAR(100),@productName VARCHAR(100),@productImg VARCHAR(MAX),@boughtBy VARCHAR(100),@productCost INT
--- )
--- AS 
--- BEGIN
--- INSERT INTO productCart(productId,productName,productImg,productCost,boughtBy) 
--- VALUES (@productId,@productName,@productImg,@productCost,@boughtBy)
-
--- END; 
-
 CREATE OR ALTER PROCEDURE addToCartProc(
     @productId VARCHAR(100),
     @productName VARCHAR(100),
