@@ -3,9 +3,9 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"David Munyiri",
-   "userPhone":"1750505060",
-   "userEmail":"munyiri@gmail.com",
+   "userName":"Mahubali",
+   "userPhone":"0741712131",
+   "userEmail":"davidmunyiri2019@outlook.com",
    "userPassword":"12345678"
 }
 
@@ -91,4 +91,23 @@ GET http://localhost:4700/cart/viewCart/dbdefa10-9141-454f-b4f8-8c527c1ec361
 DELETE http://localhost:4700/cart/deleteAll/4b468fec-7f63-4422-9544-bd4058e39347
 
 ###Remove one item from the cart ,You use productId to remove one item from the cart
-DELETE http://localhost:4700/cart/removeOne/2d595705-d442-45c4-b77a-f5d9c34478f2
+DELETE http://localhost:4700/cart/removeOne/2d595705-d442-45c4-b77a-f5d9c34478f2 
+
+
+###reset password
+POST http://localhost:4700/reset/reset-password
+Content-Type: application/json 
+
+{
+   "userEmail":"davidmunyiri2019@outlook.com"
+}
+
+
+
+###reseting using token
+POST http://localhost:4700/reset/reset-password/FB70E4
+Content-Type: application/json 
+
+{
+   "newPassword":"23456789"
+}
