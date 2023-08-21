@@ -37,10 +37,10 @@ POST http://localhost:4700/product/add
 Content-Type: application/json 
 
 {
-    "productName":"Heater",
+    "productName":"JBL Woofer",
     "productDescription":"A 50V heater",
-    "productClassification":"Electronics",
-    "productCategory":"heaters",
+    "productClassification":"systems",
+    "productCategory":"Cars",
     "productCost":"27000",
     "earlyCost":"28000",
     "productImg":"https://tv"
@@ -68,7 +68,7 @@ GET http://localhost:4700/product/viewOneProduct/fba2ebd1-12e2-4771-ad71-762f1ff
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts  
+GET http://localhost:4700/product/allProducts/Cars 
 
 
 ###ADD PRODUCT TO CART 

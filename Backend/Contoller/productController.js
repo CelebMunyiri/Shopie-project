@@ -7,6 +7,12 @@ const addProduct=async(req,res)=>{
         
     const productId = v4()
     const {productName,productDescription,productClassification,productCategory,productCost,productImg,earlyCost} = req.body
+    
+    // if(productCategory!== 'Electronics' || 'Groceries' || 'Clothes' || 'Cars' || 'Merchandise'){
+    //     return res.status(401).json({message:'Invalid Category Name'})
+    // }
+    
+    
     const pool = await mssql.connect(sqlConfig)
     
         const result = await pool.request()
@@ -102,6 +108,24 @@ const viewAllproducts=async(req,res)=>{
     }
 }
 
+//view products according to category
+const viewProductsCategory=async(req,res)=>{
+    try { 
+        const productCategory=req.params.productCategory
+        const pool=await mssql.connect(sqlConfig)
+        const products=(await pool.request()
+        .input('productCategory',productCategory)
+        .execute('viewProductWithCategory')).recordsets
+        if(products){
+            return res.status(200).json({products})
+        } else{
+            return res.status(400).json({message:'Failed To fetch Products according to category'})
+        }
+        
+    } catch (error) {
+        
+    }
+}
 module.exports={
-    addProduct,updateProduct,viewOneProduct,viewAllproducts
+    addProduct,updateProduct,viewOneProduct,viewAllproducts,viewProductsCategory
 }
