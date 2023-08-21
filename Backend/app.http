@@ -91,4 +91,4 @@ GET http://localhost:4700/cart/viewCart/dbdefa10-9141-454f-b4f8-8c527c1ec361
 DELETE http://localhost:4700/cart/deleteAll/4b468fec-7f63-4422-9544-bd4058e39347
 
 ###Remove one item from the cart ,You use productId to remove one item from the cart
-DELETE http://localhost:4700/cart/removeOne/bb232a24-a152-4112-81bf-1667f2bd2454
+DELETE http://localhost:4700/cart/removeOne/2d595705-d442-45c4-b77a-f5d9c34478f2
