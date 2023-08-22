@@ -68,7 +68,7 @@ GET http://localhost:4700/product/viewOneProduct/fba2ebd1-12e2-4771-ad71-762f1ff
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts/Cars 
+GET http://localhost:4700/product/allProducts
 
 
 ###ADD PRODUCT TO CART 
@@ -94,7 +94,7 @@ DELETE http://localhost:4700/cart/deleteAll/4b468fec-7f63-4422-9544-bd4058e39347
 DELETE http://localhost:4700/cart/removeOne/2d595705-d442-45c4-b77a-f5d9c34478f2 
 
 
-###reset password
+###reset password request
 POST http://localhost:4700/reset/reset-password
 Content-Type: application/json 
 

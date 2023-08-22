@@ -1,5 +1,5 @@
 const mssql = require('mssql');
-
+const bcrypt=require('bcrypt')
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const dotenv=require('dotenv')
@@ -17,12 +17,13 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-// Generate a unique reset token
-function generateUniqueToken() {
+// This is a function for generating unique Token
+const generateUniqueToken=()=> {
   return crypto.randomBytes(3).toString('hex').toUpperCase();
 }
 
-async function saveResetTokenToDatabase(userEmail, resetToken, expiration) {
+/////FUNCTION TO SAVE TOKEN TO THE DATABASE
+const saveResetTokenToDatabase=async(userEmail, resetToken, expiration)=> {
   const pool = await mssql.connect(sqlConfig);
   await pool.request()
     .input('userEmail', mssql.NVarChar(255), userEmail)
@@ -31,22 +32,28 @@ async function saveResetTokenToDatabase(userEmail, resetToken, expiration) {
     .execute('createResetToken');
 }
 
-async function updatePasswordInDatabase(userEmail, newPassword) {
+
+//UPDATING PASSWORD IN DATABASE
+const updatePasswordInDatabase=async(userEmail, newPassword)=> {
+
+  const hashedPwd=await bcrypt.hash(newPassword, 8)
   const pool = await mssql.connect(sqlConfig);
   await pool.request()
     .input('userEmail', mssql.NVarChar(255), userEmail)
-    .input('newPassword', mssql.NVarChar(255), newPassword)
+    .input('newPassword', mssql.NVarChar(255), hashedPwd)
     .execute('updatePassword');
 }
 
-async function deleteTokenFromDatabase(resetToken) {
+//FUNCTION FOR DELETING THE RESET TOKEN FROM DATABASE AFTER ONE HOUR IS DONE
+const deleteTokenFromDatabase=async(resetToken)=> {
   const pool = await mssql.connect(sqlConfig);
   await pool.request()
     .input('resetToken', mssql.NVarChar(255), resetToken)
     .execute('deleteResetToken');
 }
 
-async function getTokenInfoFromDatabase(resetToken) {
+//FUNCTION FOR GETTING THE TOKEN INFROMATION FROM FROM DATABASE
+const getTokenInfoFromDatabase=async(resetToken)=> {
   const pool = await mssql.connect(sqlConfig);
   const result = await pool.request()
     .input('resetToken', mssql.NVarChar(255), resetToken)
@@ -59,12 +66,13 @@ async function getTokenInfoFromDatabase(resetToken) {
   return null;
 }
 
-async function sendResetEmail(userEmail, resetLink) {
+//FUNCTION TO SEND AN EMAIL
+const sendResetEmail=async(userEmail, resetLink)=> {
   const mailOptions = {
     from: process.env.EMAIL,
     to: userEmail,
-    subject: 'Password Reset',
-    text: `Here is your password reset link: ${resetLink}. Use it within one hour.`
+    subject: `Password Reset Request for ${userEmail}`,
+    text: `Here is your password reset link: ${resetLink}. Use it within one hour.if you did not request to reset your password, kindly ignore`
   };
 
   try {

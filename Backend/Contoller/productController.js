@@ -94,11 +94,15 @@ const viewOneProduct=async(req,res)=>{
 //VIEW ALL PRODUCTS 
 const viewAllproducts=async(req,res)=>{
     try {
+        let productImg=req.params.productImg
+        productImg=`https://res.cloudinary.com/dkgtf3hhj/image/upload/${productImg}`
         const pool=await mssql.connect(sqlConfig)
         const allProducts=(await pool.request()
         .execute('viewAllproductsProc')).recordsets
+        
+     
         if(allProducts){
-            return res.status(200).json({message:"Here are all products",allProducts})
+            return res.status(200).json({message:"Here are all products",allProducts})  
         }
         else{
             return res.status(400).json({message:'Failed To Fetch products'})
