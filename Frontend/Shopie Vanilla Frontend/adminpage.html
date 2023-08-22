@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            DM Shopie
+        </div>
+        <div class="search">
+            <form action="">
+                <button  class="s-btn"><img src="images/search.png" alt="" class="search-img"></button>
+                <input type="text" placeholder="search">
+            </form>
+        </div>
+        <div class="menu">
+            <button id="openModalBtn">Add Item</button>
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close" id="closeModalBtn">&times;</span>
+                        <div class="add-item">
+                            <h2>Add a product</h2> 
+                            <form action="">
+                                <input type="text" placeholder="Product name">
+                                <input type="text" placeholder="products description">
+                                <input type="file">
+                                <input type="text" placeholder="Price Now">
+                                <input type="text" placeholder="Price was">
+                                <input type="text" placeholder="classification">
+                                <input type="text" placeholder="category"> 
+                                <input type="submit">
+                            </form>
+                              
+                        </div>
+                    </div>
+                </div>
+            <a href="/register.html">Register</a>
+            <a href="login.html">Login</a>
+            <a href="/index.html">Logout</a>
+        </div>
+    </div>
+    <div class="side">
+        <div class="categories">
+            <h2>Categories</h2>
+            <button> Mobile Phone</button>
+            <button> Clothes</button>
+            <button>Electronics</button>    
+        </div>
+    </div>
+    <div class="main">
+        <div class="item-box">
+            <img src="images/tv.jpg" alt="image">
+            <h3>Prod Name</h3>
+            <p>Description</p>
+            <p>Now Price</p>
+            <p>Was Price</p>
+            <div class="item-btn">
+                <button>Edit</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>

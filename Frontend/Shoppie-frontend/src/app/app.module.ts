@@ -11,6 +11,8 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ViewItemComponent } from './view-item/view-item.component';
+import { CartItemsComponent } from './cart-items/cart-items.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AddItemComponent } from './add-item/add-item.component';
     UserPageComponent,
     TopNavComponent,
     SideNavComponent,
-    AddItemComponent
+    AddItemComponent,
+    ViewItemComponent,
+    CartItemsComponent
   ],
   imports: [
     BrowserModule,
