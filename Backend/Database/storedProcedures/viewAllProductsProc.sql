@@ -1,5 +1,7 @@
 CREATE OR ALTER PROCEDURE viewAllProductsProc
 AS 
 BEGIN 
-SELECT * FROM productTable 
+SELECT productName,productDescription,productImg,productCost,earlyCost,productCategory,productClassification,productId FROM productTable 
 END;
+
+select * from productTable 

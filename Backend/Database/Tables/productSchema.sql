@@ -25,4 +25,5 @@ BEGIN
         THROW 50001, 'Table already Exists!', 1;
     END CATCH 
 
-select * from productTable
+
+select * from userTable

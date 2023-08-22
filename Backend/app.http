@@ -26,9 +26,9 @@ PUT http://localhost:4700/user/update/
 Content-Type: application/json 
 
 {
-   "userName":"AbdulRaheem",
-   "userPhone":"895050506",
-   "userEmail":"abdul@gmail.com",
+   "userName":"John wachira",
+   "userPhone":"887876632",
+   "userEmail":"abdulahi@gmail.com",
    "userPassword":"12345678"
 }
 
@@ -68,9 +68,14 @@ GET http://localhost:4700/product/viewOneProduct/fba2ebd1-12e2-4771-ad71-762f1ff
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts
+GET http://localhost:4700/product/allProducts/Clothes
 
 
+###delete product
+DELETE http://localhost:4700/product/delete/68550b53-4ed4-45b1-8fec-1e447c0daa4b
+
+
+ 
 ###ADD PRODUCT TO CART 
 POST http://localhost:4700/cart/add 
 Content-Type: application/json 

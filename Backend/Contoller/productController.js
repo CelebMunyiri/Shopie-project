@@ -94,19 +94,27 @@ const viewOneProduct=async(req,res)=>{
 //VIEW ALL PRODUCTS 
 const viewAllproducts=async(req,res)=>{
     try {
-        let productImg=req.params.productImg
-        productImg=`https://res.cloudinary.com/dkgtf3hhj/image/upload/${productImg}`
+        
         const pool=await mssql.connect(sqlConfig)
         const allProducts=(await pool.request()
-        .execute('viewAllproductsProc')).recordsets
+        .execute('viewAllproductsProc'))
+
+        const productsWithImageUrl = allProducts.recordset.map(product => ({
+            ...product,
+            productImg: `${product.productImg}`
+          // productImg:`${product.productImg}`
+          }));
+      
+          res.json(productsWithImageUrl);
+      
         
      
-        if(allProducts){
-            return res.status(200).json({message:"Here are all products",allProducts})  
-        }
-        else{
-            return res.status(400).json({message:'Failed To Fetch products'})
-        }
+        // if(allProducts){
+        //     return res.status(200).json({message:"Here are all products",allProducts})  
+        // }
+        // else{
+        //     return res.status(400).json({message:'Failed To Fetch products'})
+        // }
     } catch (error) {
         return res.status(401).json({Error:error.message})
     }
@@ -130,6 +138,20 @@ const viewProductsCategory=async(req,res)=>{
         
     }
 }
+
+//Delete a product from database
+const deleteProduct=async(req,res)=>{
+    const productId=req.params.productId
+    const pool=await mssql.connect(sqlConfig)
+    const deleted=(await pool.request()
+    .input('productId',productId)
+    .execute('deleteProductProc'))
+    if(deleted){
+        return res.status(200).json({message:'Product deleted succesfully'})
+    } else{
+        return res.status(400).json({message:'Failed deleting Product'})
+    }
+}
 module.exports={
-    addProduct,updateProduct,viewOneProduct,viewAllproducts,viewProductsCategory
+    addProduct,updateProduct,viewOneProduct,viewAllproducts,viewProductsCategory,deleteProduct
 }
