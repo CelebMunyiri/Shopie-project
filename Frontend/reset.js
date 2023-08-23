@@ -43,10 +43,7 @@ reset.style.opacity='0'
     })
     const codeReceive=document.querySelector('.codeReceive')
 
-    //
-   // codeReceive.addEventListener('submit',()=>{
-
-  //  })
+  
     const newPassword=document.querySelector('.newPassword')
     let code=document.querySelector('.code')
 
