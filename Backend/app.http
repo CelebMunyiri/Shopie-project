@@ -3,10 +3,11 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"Mahubali",
-   "userPhone":"0741712131",
-   "userEmail":"davidmunyiri2019@outlook.com",
+   "userName":"Abdul Mwangi",
+   "userPhone":"971712131",
+   "userEmail":"davidmwangi@outlook.com",
    "userPassword":"12345678"
+   
 }
 
 
@@ -15,7 +16,7 @@ POST http://localhost:4700/user/login
 Content-Type: application/json 
 
 {
-   "userName":"David Munyiri",
+   "userEmail":"davidmwangi@outlook.com",
    "userPassword":"12345678"
 }
 
@@ -26,9 +27,9 @@ PUT http://localhost:4700/user/update/
 Content-Type: application/json 
 
 {
-   "userName":"AbdulRaheem",
-   "userPhone":"895050506",
-   "userEmail":"abdul@gmail.com",
+   "userName":"John wachira",
+   "userPhone":"887876632",
+   "userEmail":"abdulahi@gmail.com",
    "userPassword":"12345678"
 }
 
@@ -68,9 +69,14 @@ GET http://localhost:4700/product/viewOneProduct/fba2ebd1-12e2-4771-ad71-762f1ff
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts
+GET http://localhost:4700/product/allProducts/Shoes
 
 
+###delete product
+DELETE http://localhost:4700/product/delete/68550b53-4ed4-45b1-8fec-1e447c0daa4b
+
+
+ 
 ###ADD PRODUCT TO CART 
 POST http://localhost:4700/cart/add 
 Content-Type: application/json 
@@ -88,10 +94,10 @@ GET http://localhost:4700/cart/viewCart/dbdefa10-9141-454f-b4f8-8c527c1ec361
 
 
 ###ClearAll Product from cart, You use UserId clear all cart
-DELETE http://localhost:4700/cart/deleteAll/4b468fec-7f63-4422-9544-bd4058e39347
+DELETE http://localhost:4700/cart/deleteAll/dbdefa10-9141-454f-b4f8-8c527c1ec361 
 
 ###Remove one item from the cart ,You use productId to remove one item from the cart
-DELETE http://localhost:4700/cart/removeOne/2d595705-d442-45c4-b77a-f5d9c34478f2 
+DELETE http://localhost:4700/cart/removeOne/4f7768ea-aeda-4db9-b035-4cd16babb84d 
 
 
 ###reset password request

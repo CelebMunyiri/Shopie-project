@@ -17,7 +17,7 @@ const userRegisterValidator=joi.object({
 
 }) 
 const loginValidator=joi.object({
-    userName:joi.string().min(5).max(20).messages({
+    userEmail:joi.string().messages({
         'username.empty':'Please Input Your userName with length 5 to 20' }),
         userPassword:joi.string().required().pattern(new RegExp('^[a-zA-Z0-9!@#$%^&*()_+\\-=\\[\\]{};:\'"|,.<>?/~`]{8,}$'))
 

@@ -14,6 +14,7 @@ const { userUpdateValidator, loginValidator } = require('../Validators/validator
 const registerUser=async(req,res)=>{
     try {
         const userId=v4()
+    
 const {userPhone,userName,userEmail,userPassword}=req.body
 const hashedPwd=await bcrypt.hash(userPassword, 8)
 
@@ -24,6 +25,7 @@ const registerResult=(await pool.request()
 .input('userName',userName)
 .input('userEmail',userEmail)
 .input('userPassword',hashedPwd)
+
 .execute('registerUserProc'))
 if(registerResult.rowsAffected[0] == 1){
     return res.status(200).json({message:'Registered succesfully'})
@@ -39,9 +41,9 @@ if(registerResult.rowsAffected[0] == 1){
 //USER LOGIN Controller
 const loginUser=async(req,res)=>{
     try {
-        const {userName,userPassword}=req.body 
+        const {userEmail,userPassword,role,userId}=req.body 
 
-        if(!userName || !userPassword){
+        if(!userEmail || !userPassword){
             return res.status(400).json({error:"Kindly input your credentials"})
         }
         const {error}=loginValidator.validate(req.body)
@@ -49,7 +51,7 @@ const loginUser=async(req,res)=>{
             return res.status(422).json(error.details[0].message)
         }
        const pool=await mssql.connect(sqlConfig)
-       const user=(await pool.request().input('userName',userName).execute('userLoginProc')).recordset[0]
+       const user=(await pool.request().input('userEmail',userEmail).execute('userLoginProc')).recordset[0]
        const hashedPwd=user.userPassword
 
        
@@ -57,9 +59,9 @@ const loginUser=async(req,res)=>{
         const comparePassword=await bcrypt.compare(userPassword, hashedPwd)
 
         if(comparePassword){
-            const {userPassword,userId,...payload}=user 
+            const {userPassword,userId,role,...payload}=user 
             const token=jwt.sign(payload, process.env.SECRET,{expiresIn:'360000s'})
-            return res.status(200).json({message:'Logged in successful',token:token})
+            return res.status(200).json({message:'Logged in successful',token:token,role,userId})
                 
            }else{
             return res.status(400).json({message:'Invalid Log in'})

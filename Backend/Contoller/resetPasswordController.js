@@ -72,7 +72,7 @@ const sendResetEmail=async(userEmail, resetLink)=> {
     from: process.env.EMAIL,
     to: userEmail,
     subject: `Password Reset Request for ${userEmail}`,
-    text: `Here is your password reset link: ${resetLink}. Use it within one hour.if you did not request to reset your password, kindly ignore`
+    text: `Here is your password reset code: ${resetLink}. Use it within one hour.if you did not request to reset your password, kindly ignore`
   };
 
   try {

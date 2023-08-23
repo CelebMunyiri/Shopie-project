@@ -1,6 +1,6 @@
-CREATE OR ALTER PROCEDURE userLoginProc(@userName VARCHAR(100))
+CREATE OR ALTER PROCEDURE userLoginProc(@userEmail VARCHAR(100))
 AS 
 BEGIN 
 SELECT * FROM userTable
-WHERE userName=@userName
+WHERE userEmail=@userEmail
 END; 
