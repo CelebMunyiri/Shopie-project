@@ -102,7 +102,7 @@ const viewAllproducts=async(req,res)=>{
         const productsWithImageUrl = allProducts.recordset.map(product => ({
             ...product,
             productImg: `${product.productImg}`
-          // productImg:`${product.productImg}`
+          
           }));
       
           res.json(productsWithImageUrl);
@@ -127,7 +127,7 @@ const viewProductsCategory=async(req,res)=>{
         const pool=await mssql.connect(sqlConfig)
         const products=(await pool.request()
         .input('productCategory',productCategory)
-        .execute('viewProductWithCategory')).recordsets
+        .execute('viewProductWithCategory')).recordset
         if(products){
             return res.status(200).json({products})
         } else{

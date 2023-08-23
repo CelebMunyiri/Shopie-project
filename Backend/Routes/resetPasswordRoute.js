@@ -13,7 +13,7 @@ resetRoute.post('/reset-password', async (req, res) => {
   await saveResetTokenToDatabase(userEmail, resetToken, Date.now() + 3600000); // Expire after 1 hour
 
   // Send an email to the user containing the reset link
-  const resetLink = `https://your-app-url/reset/${resetToken}`;
+  const resetLink = `${resetToken}`;
   sendResetEmail(userEmail, resetLink);
 
   res.send('Password reset email sent.');
