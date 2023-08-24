@@ -7,16 +7,9 @@ BEGIN
             productClassification VARCHAR(100) NOT NULL,
             productCategory VARCHAR(100) NOT NULL,
             productImg VARCHAR(MAX),
-            status BIT DEFAULT 0,
             stockNumber INT ,
-            boughtBy VARCHAR(100),
             productCost INT NOT NULL,
-            earlyCost INT,
-			userboughtEmailed BIT DEFAULT 0,
-			emailAdminItemBought BIT DEFAULT 0,
-            FOREIGN KEY (boughtBy) REFERENCES userTable (userId)
-            ON DELETE SET NULL
-            ON UPDATE CASCADE
+            earlyCost INT
         )
 
     END TRY
@@ -25,5 +18,3 @@ BEGIN
         THROW 50001, 'Table already Exists!', 1;
     END CATCH 
 
-
-select * from userTable

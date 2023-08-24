@@ -15,7 +15,7 @@ const registerUser=async(req,res)=>{
     try {
         const userId=v4()
     
-const {userPhone,userName,userEmail,userPassword}=req.body
+const {userPhone,userName,userEmail,userPassword,profilePic}=req.body
 const hashedPwd=await bcrypt.hash(userPassword, 8)
 
 const pool=await mssql.connect(sqlConfig)
@@ -25,6 +25,7 @@ const registerResult=(await pool.request()
 .input('userName',userName)
 .input('userEmail',userEmail)
 .input('userPassword',hashedPwd)
+.input('profilePic',profilePic)
 
 .execute('registerUserProc'))
 if(registerResult.rowsAffected[0] == 1){
@@ -41,7 +42,7 @@ if(registerResult.rowsAffected[0] == 1){
 //USER LOGIN Controller
 const loginUser=async(req,res)=>{
     try {
-        const {userEmail,userPassword,role,userId}=req.body 
+        const {userEmail,userPassword,role,userId,profilePic}=req.body 
 
         if(!userEmail || !userPassword){
             return res.status(400).json({error:"Kindly input your credentials"})
@@ -59,9 +60,9 @@ const loginUser=async(req,res)=>{
         const comparePassword=await bcrypt.compare(userPassword, hashedPwd)
 
         if(comparePassword){
-            const {userPassword,userId,role,...payload}=user 
+            const {userPassword,userId,role,profilePic,...payload}=user 
             const token=jwt.sign(payload, process.env.SECRET,{expiresIn:'360000s'})
-            return res.status(200).json({message:'Logged in successful',token:token,role,userId})
+            return res.status(200).json({message:'Logged in successful',token:token,role,userId,profilePic})
                 
            }else{
             return res.status(400).json({message:'Invalid Log in'})

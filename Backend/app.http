@@ -3,10 +3,12 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"Abdul Mwangi",
-   "userPhone":"971712131",
-   "userEmail":"davidmwangi@outlook.com",
-   "userPassword":"12345678"
+   "userName":"AbdulRaheem Munyiri",
+   "userPhone":"0741712131",
+   "userEmail":"davidmwangi123@outlook.com",
+   "userPassword":"12345678",
+   "profilePic":"https://this.image"
+   
    
 }
 
