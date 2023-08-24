@@ -1,0 +1,197 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+
+    
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.section{
+width: 100%;
+height: 100%;
+}
+.navbar{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgb(70, 230, 70);
+}
+.logo h1{
+    color: white;
+}
+.cart{
+    width: 5%;
+    height: 70%;
+    cursor: pointer;
+}
+.profile{
+    width: 5%;
+    height: 70%;
+    cursor: pointer;
+
+}
+.navbar input{
+    height: 60%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+.main{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    
+}
+.leftbar{
+    height: 100%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: rgb(163, 231, 163);
+    
+}
+.leftbar h1{
+    color: white;
+}
+.rightbar{
+    
+    width: 80%;
+    height: 100%;
+    background: rgb(199, 223, 199);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.category{
+    width: 85%;
+    height: 10%;
+    
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: green;
+}
+.rightbar .top{
+    width: 98%;
+    height: 48%;
+    background: white;
+    border-radius: 15px;
+
+    box-shadow: 0 0 10px aliceblue;
+}
+.rightbar .bottom{
+    width: 100%;
+    height: 50%;
+    background: white;  
+    display: flex;
+}
+.rightbar h5{
+    color: green;
+    padding: 5px;
+}
+.create{
+    width: 50%;
+    height: 100%;
+    
+}
+.addProduct{
+    margin-left: 5px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow:0 0 10px green ;
+    border-radius: 20px;
+
+}
+.addProduct input{
+    width: 70%;
+    height: 7%;
+    border: 1px solid green;
+    outline: none;
+    border-radius: 10px;
+}
+.right{
+    width: 85%;
+    height: 100%;
+    display: flex;
+}
+.addProduct button{
+    width: 40%;
+    height: 7%;
+    color: white;
+    border: none;
+    background: green;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.resMessage{
+    height: 5%;
+    color: green;
+    opacity: 0;
+}
+.adminP{
+    width: 70px;
+    height: 70px;
+}
+.view{
+    
+    width: 50%;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    color: green;
+}
+.pDiv{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    border: 1px soli green;
+    align-items: center;
+}
+.pDiv button{
+    color: white;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:600px) {
+    .main{
+        flex-direction: column;
+    }
+    
+    .right{
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .leftbar{
+        display:none;
+    }
+    .view{
+        width: 100%;
+        height: 50%;
+    }
+    .create{
+        width: 100%;
+        height: 400px;
+    }
+}
