@@ -4,4 +4,4 @@ BEGIN
 SELECT productName,productDescription,productImg,productCost,earlyCost,productCategory,productClassification,productId FROM productTable 
 END;
 
-select * from productTable 
+ 
