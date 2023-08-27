@@ -20,6 +20,3 @@ module.exports.tokenVerfying = async(req,res,next)=>{
     
 }
 
- module.exports={
- tokenVerfying
- }
