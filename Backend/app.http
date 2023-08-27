@@ -3,10 +3,12 @@ POST http://localhost:4700/user/register
 Content-Type: application/json 
 
 {
-   "userName":"Abdul Mwangi",
-   "userPhone":"971712131",
-   "userEmail":"davidmwangi@outlook.com",
-   "userPassword":"12345678"
+   "userName":"AbdulRaheem Munyiri",
+   "userPhone":"0741712131",
+   "userEmail":"davidmwangi123@outlook.com",
+   "userPassword":"12345678",
+   "profilePic":"https://this.image"
+   
    
 }
 
@@ -50,30 +52,30 @@ Content-Type: application/json
 
 
 ###Update product ,YOU use productId to update its details
-PUT http://localhost:4700/product/update/
+PUT http://localhost:4700/product/update/a76536d0-365e-4c0a-b087-23c4b2de482b
 Content-Type: application/json 
 
 {
-    "productName":"Kenyan Sugar",
+    "productName":"Black Mamba",
     "productDescription":"A Kabras product",
     "productClassification":"Groceries",
-    "productCategory":"Kitchenries",
+    "productCategory":"Shoes",
     "productCost":"520",
     "earlyCost":"570",
-    "productImg":"https://sugar/product"
+    "productImg":"http://res.cloudinary.com/dkgtf3hhj/image/upload/v1692984617/nlzi4cmqqicvoiz2bt7o.jpg"
 }
 
 
 ###view One product
-GET http://localhost:4700/product/viewOneProduct/fba2ebd1-12e2-4771-ad71-762f1ffd5eb9 
+GET http://localhost:4700/product/viewOneProduct/ 
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts/Shoes
+GET http://localhost:4700/product/allProducts
 
 
 ###delete product
-DELETE http://localhost:4700/product/delete/68550b53-4ed4-45b1-8fec-1e447c0daa4b
+DELETE http://localhost:4700/product/delete/01a41ce2-d686-45f5-9efb-396fb3080545
 
 
  

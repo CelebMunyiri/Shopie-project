@@ -1,8 +1,8 @@
-CREATE OR ALTER PROCEDURE registerUserProc(@userId VARCHAR(100),@userName VARCHAR(100),@userPhone VARCHAR,@userEmail VARCHAR(100),@userPassword VARCHAR(MAX))
+CREATE OR ALTER PROCEDURE registerUserProc(@userId VARCHAR(100),@userName VARCHAR(100),@userPhone VARCHAR,@userEmail VARCHAR(100),@profilePic VARCHAR(MAX),@userPassword VARCHAR(MAX))
 AS 
 BEGIN 
 INSERT INTO
-    userTable(userId, userName, userEmail, userPhone, userPassword)
+    userTable(userId,profilePic, userName, userEmail, userPhone, userPassword)
 VALUES
-    (@userId,@userName,@userEmail,@userPhone,@userPassword)
+    (@userId,@profilePic,@userName,@userEmail,@userPhone,@userPassword)
 END;
