@@ -11,7 +11,7 @@ const productDescription=document.querySelector('.productDescription')
 
 
   let productImageUrl = ''
-    const regError = document.querySelector('.regError')
+
 
     productImg.addEventListener('change', (event)=>{
         
@@ -31,14 +31,14 @@ const productDescription=document.querySelector('.productDescription')
     })
 
     //Here i added event listener to the add products form 
-    const resMessage=document.querySelector('.resMessage')
+   
 addProduct.addEventListener('submit',(e)=>{
 e.preventDefault()
 
 axios
 .post(
   "http://localhost:4700/product/add",
-
+  
   {
     productName: productName.value,
     productCost: productCost.value,
@@ -53,6 +53,7 @@ axios
     headers: {
       Accept: "application/json",
       "Content-type": "application/json",
+      "token":localStorage.getItem('token')
     },
   }
 )
@@ -81,7 +82,11 @@ axios
 axios
 .get(
   "http://localhost:4700/product/allProducts",
-
+  {
+    headers: {
+      "token":localStorage.getItem('token')
+    }
+  }
 )
 .then((response) => {
     const view=document.querySelector('.view')
@@ -115,45 +120,46 @@ products.forEach((product) => {
     e.preventDefault()
     const id=product.productId
    const res= await deleteProduct(id)
-   
+  })
+  const edit=document.querySelector('.edit')
+  const addP=document.querySelector('.addP')
+
+  edit.addEventListener('click',async(e)=>{
+    e.preventDefault()
+    addP.textContent='Update Product'
+    const iD=product.productId
+    const res=await updateProduct(iD)
 
   })
-
   
  })
   })
- 
-
- 
-
 .catch((e) => {
   console.log(e);
 });
 
-const edit=document.querySelector('.edit') 
 
- edit.addEventListener('click',(productId)=>{
-
- })
-
- ///func
- 
+ ///function fro deleting a product
+ const resMessage=document.querySelector('.resMessage')
 async function deleteProduct(id){
     try {
         await axios
         .delete(
           `http://localhost:4700/product/delete/${id}`,
-        
+          {
+            headers: {
+              "token":localStorage.getItem('token')
+            }
+          }
         )
         .then((response)=>{
         console.log(response.data.message)
         setTimeout(()=>{
             resMessage.textContent=response.data.message
             resMessage.style.opacity='1'
-          },1000)
-          setTimeout(()=>{
-            resMessage.style.opacity='0'
-          },4000)
+            resMessage.style.color='green'
+          },2000)
+         
           location.reload()
         })
     } catch (error) {
@@ -161,4 +167,52 @@ async function deleteProduct(id){
     }
   
   }
+
+
+  //update an item 
+  async function updateProduct(iD){
+addProduct.addEventListener('submit',()=>{
+
+    axios
+.put(
+  `http://localhost:4700/product/update/${iD}`,
+  
+  {
+    productName: productName.value,
+    productCost: productCost.value,
+    earlyCost: earlyCost.value,
+    productClassification: productClassification.value,
+    productCategory:productCategory.value,
+    productDescription:productDescription.value,
+    productImg:productImageUrl
+  },
+
+  {
+    headers: {
+      Accept: "application/json",
+      "Content-type": "application/json",
+      "token":localStorage.getItem('token')
+    },
+  }
+)
+.then((response) => {
+console.log(response)
+
+  location.reload()
+  
+})
+.catch((e) => {
+  console.log(e);
+});
+})
+
+
+  }
+
+  //logout function
+  const logout=document.querySelector('.logout')
+  logout.addEventListener('click',()=>{
+      window.location.replace('./login.html')
+      localStorage.clear()
+  })
 

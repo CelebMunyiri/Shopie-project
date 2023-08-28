@@ -16,7 +16,7 @@ const itemsin=document.querySelector('.itemsin')
 
 const productContainer=document.querySelector('.bottom')
     // Fetch products from the API
-    function fetchAndRenderProducts(category,searchQuery=''){
+    function fetchAndRenderProducts(category){
       productContainer.innerHTML=""
     axios.get(`http://localhost:4700/product/allProducts/${category}`,
     {
@@ -27,15 +27,9 @@ const productContainer=document.querySelector('.bottom')
       .then(response => {
         const products = response.data.products
         console.log(response.data.products)
-        //
-        const filteredProducts = products.filter(product => {
-          const productname = product.productName.toLowerCase();
-          const query = searchQuery.toLowerCase();
-          return productname.includes(query);
-        });
         // Render products using forEach loop
 
-        filteredProducts.forEach(product => {
+        products.forEach(product => {
           const productDiv = document.createElement('div');
           
           productDiv.classList.add('product');
@@ -77,21 +71,21 @@ const productContainer=document.querySelector('.bottom')
     fetchAndRenderProducts('Shoes');
 
 shoes.addEventListener('click', () => {
-  fetchAndRenderProducts('Shoes',search.value)
+  fetchAndRenderProducts('Shoes')
 });
 watches.addEventListener('click',async () => {
 
- fetchAndRenderProducts('Watches',search.value)
+ fetchAndRenderProducts('Watches')
 });
 jackets.addEventListener('click', async() => {
-fetchAndRenderProducts('Jackets',search.value)
+fetchAndRenderProducts('Jackets')
 });
 jewellery.addEventListener('click',async () => {
-  fetchAndRenderProducts('Jewellery',search.value);
+  fetchAndRenderProducts('Jewellery');
 });
 shirts.addEventListener('click', () => {
   
-  fetchAndRenderProducts('Shirts',search.value);
+  fetchAndRenderProducts('Shirts');
 });
 
     // Function to add a product to the cart
@@ -149,10 +143,12 @@ itemsin.textContent=itemsIn
 itemsIn.style.color="green"
 })
 
-search.addEventListener('input', () => {
+//search product implementation
+searchInput.addEventListener('input', () => {
   // Filter products based on search query
   const searchQuery = search.value.toLowerCase();
   const productDivs = productContainer.querySelectorAll('div');
+  console.log(productDivs)
   
   productDivs.forEach(productDiv => {
     const productName = productDiv.textContent.toLowerCase();
@@ -162,8 +158,7 @@ search.addEventListener('input', () => {
       productDiv.style.display = 'none';
     }
   });
-})
-
+});
 
 
 

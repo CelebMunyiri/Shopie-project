@@ -1,5 +1,26 @@
 'use strict'
 const registerForm = document.querySelector(".registerForm");
+const userImg=document.querySelector('.userImg')
+
+let userImageUrl = ''
+    const regError = document.querySelector('.regError')
+
+    userImg.addEventListener('change', (event)=>{
+        
+        const target = event.target
+        const files = target.files
+        if(files){
+            const formData = new FormData()
+            formData.append("file", files[0])
+            formData.append("upload_preset", "Notebook")
+            formData.append("cloud_name", "dkgtf3hhj")
+
+            fetch('https://api.cloudinary.com/v1_1/dkgtf3hhj/image/upload', {
+                method: "POST",
+                body: formData
+            }).then((res) => res.json()).then(res => userImageUrl = res.url)
+        }
+    })
 
 // HANDLE REGISTRATION
 
@@ -33,7 +54,8 @@ registerForm.addEventListener("submit", (e) => {
           userName: userName.value,
           userEmail: userEmail.value,
           userPassword: userPassword.value,
-          userPhone: userPhone.value
+          userPhone: userPhone.value,
+          profilePic:userImageUrl
         },
 
         {

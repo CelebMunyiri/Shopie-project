@@ -56,3 +56,22 @@ border: none;
 height: 20px;
 border-radius: 8px;
 }
+.reseted{
+    width: 60%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: green;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    color: white;
+    opacity: 0;
+}
+.reseted input{
+    width: 70%;
+    height: 20%;
+    border-radius: 10px;
+    border: none;
+    
+}

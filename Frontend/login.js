@@ -3,6 +3,7 @@ const loginForm=document.querySelector('.loginForm')
 const userPassword=document.querySelector('.userPassword')
 const userEmail=document.querySelector('.userEmail')
 
+let userImage=''
 let token=''
 let userId=''
 
@@ -33,6 +34,8 @@ loginForm.addEventListener('submit', (e)=>{
             localStorage.setItem('id',userId)
             token=res.data.token
             localStorage.setItem('token',token)
+            userImage=res.data.profilePic
+            localStorage.setItem('userImage',userImage)
 
             const resMessage=document.querySelector('.resMessage')
             setTimeout(()=>{
