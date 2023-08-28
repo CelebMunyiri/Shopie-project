@@ -8,11 +8,6 @@ const addProduct=async(req,res)=>{
     const productId = v4()
     const {productName,productDescription,productClassification,productCategory,productCost,productImg,earlyCost} = req.body
     
-    // if(productCategory!== 'Electronics' || 'Groceries' || 'Clothes' || 'Cars' || 'Merchandise'){
-    //     return res.status(401).json({message:'Invalid Category Name'})
-    // }
-    
-    
     const pool = await mssql.connect(sqlConfig)
     
         const result = await pool.request()
@@ -109,12 +104,7 @@ const viewAllproducts=async(req,res)=>{
       
         
      
-        // if(allProducts){
-        //     return res.status(200).json({message:"Here are all products",allProducts})  
-        // }
-        // else{
-        //     return res.status(400).json({message:'Failed To Fetch products'})
-        // }
+        
     } catch (error) {
         return res.status(401).json({Error:error.message})
     }

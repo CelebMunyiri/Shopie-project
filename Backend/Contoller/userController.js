@@ -34,7 +34,7 @@ if(registerResult.rowsAffected[0] == 1){
     return res.status(400).json({message:'Registration Failed'})
 }
 } catch (error) {
-       // createTableUser()
+    
         return res.json({Error:error.message})
     }
 }
