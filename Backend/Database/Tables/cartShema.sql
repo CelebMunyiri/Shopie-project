@@ -14,7 +14,8 @@ BEGIN
 CATCH 
 THROW 50001,'Table has already been created',1
 END 
-CATCH;  
+CATCH; 
+  
 
 
 

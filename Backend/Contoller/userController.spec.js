@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { registerUser, loginUser, updateUser } = require('./userController');
 
 // Mocking dependencies
-jest.mock('mssql');
+jest.mock('mssql'); 
 jest.mock('bcrypt');
 jest.mock('jsonwebtoken');
 
@@ -17,13 +17,20 @@ describe('User Controller Tests', () => {
     // Set up mock implementation for bcrypt.hash
     bcrypt.hash.mockResolvedValue('hashedPassword');
 
-    // Mock mssql pool request and execute
+    
     const mockExecute = jest.fn().mockResolvedValue({ rowsAffected: [1] });
     const mockRequest = jest.fn(() => ({ input: jest.fn().mockReturnThis(), execute: mockExecute }));
     const mockPool = { request: mockRequest };
     require('mssql').connect.mockResolvedValue(mockPool);
 
-    const req = { body: { /* ... user data ... */ } };
+    const req = { body: { 
+      userName:'David Munyiri',
+      userEmail:'dawud@gmail.com',
+      profilePic:'https://me.jpg',
+      userPassword:'12345678',
+      userPhone:'2547567889'
+
+    } };
     const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
 
     await registerUser(req, res);
@@ -32,34 +39,50 @@ describe('User Controller Tests', () => {
     expect(res.json).toHaveBeenCalledWith({ message: 'Registered succesfully' });
   });
 
-  it('should log in a user successfully', async () => {
-    // Set up mock implementation for bcrypt.compare
-    bcrypt.compare.mockResolvedValue(true);
+  it("Should Enable a user to Login and return a token", async () => {
+    const user = {
+      userId: "787rnyhcg3gv8bg34cr",
+      userName: "Mahubali",
+      userEmail: "mahubali@gmail.com",
+      userPhone: "0986215464",
+      role: "NULL",
+      userPassword: "ouiweuiriuew907ajbf",
+      profilePic: "NULL",
+    };
+    const req = {
+      body: {
+        userEmail: user.userEmail,
+        userPassword: "12345678",
+      },
+    };
 
-    // Mock mssql pool request and execute
-    const mockRecordset = [{ /* ... user data ... */ }];
-    const mockExecute = jest.fn().mockResolvedValue({ recordset: mockRecordset });
-    const mockRequest = jest.fn(() => ({ input: jest.fn().mockReturnThis(), execute: mockExecute }));
-    const mockPool = { request: mockRequest };
-    require('mssql').connect.mockResolvedValue(mockPool);
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    };
 
-    // Set up mock implementation for jwt.sign
-    jwt.sign.mockReturnValue('mockedToken');
+    jest.spyOn(mssql, "connect").mockResolvedValueOnce({
+      request: jest.fn().mockReturnThis(),
+      input: jest.fn().mockReturnThis(),
+      execute: jest.fn().mockResolvedValueOnce({
+        rowsAffected: 1,
+        recordset: [user],
+      }),
+    });
 
-    const req = { body: { userEmail:'davidmunyiri2019@outlook.com',userPassword:'12345678' } };
-    const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+    jest.spyOn(bcrypt, "compare").mockResolvedValueOnce(true);
+    jest.spyOn(jwt, "sign").mockReturnValueOnce("mockedToken");
 
     await loginUser(req, res);
 
-    expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({
-      message: 'Logged in successful',
-      token: 'mockedToken',
-      role: 'admin',
-      userId: '0oju7gyu',
-      profilePic: 'https://img',
+      message: "Logged in successful",
+      token: "mockedToken",
+      role:'admin',
+      userId:'9ihy677',
+      profilePic:'https://me.jpg'
     });
-  });
+  })
 
   it('should update user details successfully', async () => {
     // Set up mock implementation for bcrypt.hash

@@ -35,7 +35,8 @@ height: 100%;
 
 }
 .navbar input{
-    height: 60%;
+    height: 50%;
+    width: 30%;
     border-radius: 10px;
     border: none;
     outline: none;
@@ -58,6 +59,7 @@ height: 100%;
 }
 .leftbar h1{
     color: white;
+    font-weight: 10px;
 }
 .rightbar{
     
@@ -72,13 +74,13 @@ height: 100%;
 .category{
     width: 85%;
     height: 10%;
-    
+    background: green;
     border-radius: 10px;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background: green;
+    
 }
 
  .bottom{
@@ -86,7 +88,27 @@ height: 100%;
     height: 100%;
     background: white;  
     display: flex; 
-    color: rgb(61, 200, 61);
+    color: rgb(40, 134, 40);
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.productDiv{
+    margin-left: 15px;
+    width: 270px;
+    box-shadow: 0 0 0 1px rgb(213, 222, 213);
+    height: 47%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.productDiv h4{
+    color: green;
+}
+.cost{
+    color: goldenrod;
 }
 
 .productImg{
@@ -120,6 +142,10 @@ height: 100%;
         width: 100%;
         height: 100%;
     }
+    .bottom{
+        width: 100%;
+        height: 100%;
+    }
     .leftbar{
         display:none;
     }
@@ -132,3 +158,30 @@ height: 100%;
         height: 400px;
     }
 }
+
+.itemsin{
+    position: relative;
+    top: 20px;
+}
+
+.bottom{
+    overflow-y: scroll;
+}
+
+.profile{
+    width: 40px;
+    height: 40px;
+    
+}
+.profile img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px aliceblue;
+}
+
+
+.logo h1{
+    font-weight: 5px;
+}
+
