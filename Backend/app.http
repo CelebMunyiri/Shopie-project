@@ -71,11 +71,12 @@ GET http://localhost:4700/product/viewOneProduct/
 
 
 ###VIEW ALL Products
-GET http://localhost:4700/product/allProducts
-
+GET http://localhost:4700/product/allProducts/Shoes
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 ###delete product
-DELETE http://localhost:4700/product/delete/01a41ce2-d686-45f5-9efb-396fb3080545
+DELETE http://localhost:4700/product/delete/ccf-8086-4189-a34a-be07d93c181d 
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 
  
