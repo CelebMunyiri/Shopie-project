@@ -29,4 +29,10 @@ describe('visiting registration page', () => {
         cy.get('input[type=submit]').click();
         cy.url().should('not.include', '/login');
       });
+      it('should perform a search', () => {
+        cy.visit('http://127.0.0.1:5500/index.html'); 
+        const searchQuery = 's';
+        cy.get('input[type="search"]').type(searchQuery).type('{enter}');
+      });
+    
 })
