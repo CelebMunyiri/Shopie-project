@@ -135,7 +135,7 @@ const deleteProduct=async(req,res)=>{
     if(deleted){
         return res.status(200).json({message:'Product deleted succesfully'})
     } else{
-        return res.status(400).json({message:'Failed deleting Product'})
+        return res.status(401).json({message:'Failed deleting Product'})
     }
 }
 module.exports={

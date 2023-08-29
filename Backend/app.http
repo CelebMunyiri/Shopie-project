@@ -18,7 +18,7 @@ POST http://localhost:4700/user/login
 Content-Type: application/json 
 
 {
-   "userEmail":"davidmwangi@outlook.com",
+   "userEmail":"samido@gmail.com",
    "userPassword":"12345678"
 }
 
@@ -83,24 +83,25 @@ token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13Y
 ###ADD PRODUCT TO CART 
 POST http://localhost:4700/cart/add 
 Content-Type: application/json 
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 {
-    "productName":"Heater",
-    "productCost":"21000",
-    "productImg":"https://tv",
-    "boughtBy":"dbdefa10-9141-454f-b4f8-8c527c1ec361"
+   
 }
 
 
 ###VIEW CART , You use UserId to view Cart
-GET http://localhost:4700/cart/viewCart/dbdefa10-9141-454f-b4f8-8c527c1ec361 
+GET http://localhost:4700/cart/viewCart/b26f14df-7537-44d6-a29f-47ec6992ed49 
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 
 ###ClearAll Product from cart, You use UserId clear all cart
 DELETE http://localhost:4700/cart/deleteAll/dbdefa10-9141-454f-b4f8-8c527c1ec361 
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 ###Remove one item from the cart ,You use productId to remove one item from the cart
-DELETE http://localhost:4700/cart/removeOne/4f7768ea-aeda-4db9-b035-4cd16babb84d 
+DELETE http://localhost:4700/cart/removeOne/ 
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IkFiZHVsUmFoZWVtIE13YW5naSIsInVzZXJFbWFpbCI6ImRhdmlkbXdhbmdpQG91dGxvb2suY29tIiwidXNlclBob25lIjo5LCJpYXQiOjE2OTMyMzA3MzAsImV4cCI6MTY5MzU5MDczMH0.dCFKyCnp-zDivnGWLTDKxchTY7koDi5IGhR2xEKkDPM
 
 
 ###reset password request
