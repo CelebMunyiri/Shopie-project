@@ -121,7 +121,7 @@ const viewProductsCategory=async(req,res)=>{
         }
         
     } catch (error) {
-        
+        return res.status(401).json({Error:error.message})
     }
 }
 

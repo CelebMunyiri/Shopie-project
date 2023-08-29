@@ -115,7 +115,7 @@ Content-Type: application/json
 
 
 ###reseting using token
-POST http://localhost:4700/reset/reset-password/246B50
+POST http://localhost:4700/reset/reset-password/A7EE72
 Content-Type: application/json 
 
 {

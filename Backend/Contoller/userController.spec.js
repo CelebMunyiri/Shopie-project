@@ -32,7 +32,7 @@ describe(" Tests For Users Controller", () => {
         request: jest.fn().mockReturnThis(),
         input: jest.fn().mockReturnThis(),
         execute: jest.fn().mockResolvedValueOnce({
-          rowsAffected: 1,
+          rowsAffected: [1],
         }),
       });
       await registerUser(req, res);
