@@ -100,11 +100,7 @@ const viewAllproducts=async(req,res)=>{
           
           }));
       
-          res.json(productsWithImageUrl);
-      
-        
-     
-        
+          return res.status(200).json(productsWithImageUrl);
     } catch (error) {
         return res.status(401).json({Error:error.message})
     }
@@ -119,13 +115,13 @@ const viewProductsCategory=async(req,res)=>{
         .input('productCategory',productCategory)
         .execute('viewProductWithCategory')).recordset
         if(products){
-            return res.status(200).json({products})
+            return res.status(200).json({message:"Here are products in your category", products})
         } else{
             return res.status(400).json({message:'Failed To fetch Products according to category'})
         }
         
     } catch (error) {
-        
+        return res.status(401).json({Error:error.message})
     }
 }
 
@@ -139,7 +135,7 @@ const deleteProduct=async(req,res)=>{
     if(deleted){
         return res.status(200).json({message:'Product deleted succesfully'})
     } else{
-        return res.status(400).json({message:'Failed deleting Product'})
+        return res.status(401).json({message:'Failed deleting Product'})
     }
 }
 module.exports={

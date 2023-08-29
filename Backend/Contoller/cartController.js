@@ -15,13 +15,13 @@ const addToCart=async(req,res)=>{
         .input('productImg',productImg)
         .input('boughtBy',boughtBy)
         .execute('addToCartProc'))
-        if(addToCart){
+        if(cart){
             return res.status(200).json({message:"Product Added to Cart"})
         } else{
-            return res.status(401).json({message:"Failed adding Product To Cart"})
+            return res.status(404).json({message:"Failed adding Product To Cart"})
         }
     } catch (error) {
-        return res.status(200).json({Error:error.message})
+        return res.status(401).json({Error:error.message})
     }
 }
 
@@ -50,7 +50,7 @@ const removeAllFromCart=async(req,res)=>{
         .input('userId',userId)
         .execute('deleteFromCartProc'))
         if(deletedItems){
-            return res.status(200).json({message:"Removed All items from Cart"})
+            return res.status(200).json({message:"Removed all Items From the cart"})
         } else{
             return res.status(400).json({message:"Failed to Remove Items from cart"})
         }
