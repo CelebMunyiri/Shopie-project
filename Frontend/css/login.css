@@ -14,7 +14,7 @@ body{
 }
 .main{
     width: 40%;
-    height: 80%;
+    height: 86%;
     background-color: #abf5aa;
     border-radius: 10px;
 
@@ -28,9 +28,12 @@ form{
     justify-content: space-evenly;
 
 }
+.main img{
+    width: 150px;
+}
 form input{
     width: 70%;
-    height: 8%;
+    height: 6%;
     padding: 10px;
     border: none;
     outline: none;
@@ -40,7 +43,8 @@ form input{
 form .sub-btn{
     color: rgb(245, 247, 245);
     background-color: rgb(55, 161, 55);
-    height: 22px;
+    height: 26px;
+    padding: 3px;
     width: 100px;
     border-radius: 5px;
     margin-left: auto;

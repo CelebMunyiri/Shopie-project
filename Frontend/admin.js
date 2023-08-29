@@ -93,7 +93,7 @@ axios
   console.log(response.data);
   const products=response.data
   //console.log(products)
-  const singleProject= document.createElement('div')
+  const singleProject= document.createElement('div1')
   let html = '' 
  
 products.forEach((product) => {
@@ -101,10 +101,10 @@ products.forEach((product) => {
       html+=`
       <div class="pDiv">
 <img class='adminP' src=${product.productImg} alt=${product.productName}/>
-     <p>${product.productName} </p> 
+     <h4>${product.productName} </h4> 
 <p>${product.productDescription}</p>
- <p>Now Ksh ${product.productCost}</p>
- <p>Was Ksh ${product.earlyCost}</p>
+ <h4>Now Ksh ${product.productCost}</h4>
+ <h5>Was Ksh ${product.earlyCost}</h5>
 <div>
     <button class="edit">Edit</button>
     <button class="deleteP">delete</button>

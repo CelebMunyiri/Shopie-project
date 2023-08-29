@@ -11,12 +11,14 @@ const sqlConfig = {
     pool: {
         max: 10,
         min: 0,
-        idleTimeoutMillis:  30000  
+        idleTimeoutMillis:  30001  
+        
     },
     options:{
         encrypt: false,     
         trustServerCertificate: false
     }
+    
 }
 
 mssql.connect(sqlConfig)
