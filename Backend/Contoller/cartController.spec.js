@@ -16,7 +16,7 @@ describe("Tests for cart controller",()=>{
         body:{
             productId:"jju88y8uhu",
             productName:"Black Mamba",
-            productCost:"8900",
+            productCost:8900,
             productImg:"https://productimg.jpg",
             boughtBy:"j8yug87"
         }
